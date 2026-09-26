@@ -1,4 +1,5 @@
 import asyncio
+import os
 import nest_asyncio
 from telegram import Update
 from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
@@ -6,7 +7,10 @@ import schedule
 import time
 import threading
 
-TOKEN = '7638103559:AAFIO_SDqNav82SqxxHf9SlQNGSq0nISMoU'  # <-- BU YERGA TOKENINGIZNI QO'YING
+# Token kodda saqlanmaydi: uni TOKEN muhit o'zgaruvchisi orqali bering (Render -> Environment)
+TOKEN = os.environ.get("TOKEN")
+if not TOKEN:
+    raise SystemExit("❌ TOKEN muhit o'zgaruvchisi o'rnatilmagan. @BotFather'dan olingan tokenni TOKEN ga yozing.")
 CHAT_ID = 878579291
 
 # nest_asyncio -> loop muammosini hal qiladi
